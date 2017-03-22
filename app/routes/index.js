@@ -1,7 +1,21 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
+const {
+  Route,
+  RSVP: { hash },
+  get,
+  setProperties
+} = Ember;
+
+export default Route.extend({
   model() {
-    return this.get('store').findRecord('user', 1);
+    return hash({
+      user: get(this, 'store').findRecord('user', 1),
+      resources: get(this, 'store').findRecord('resource-list', 1)
+    });
+  },
+
+  setupController(controller, hash) {
+    setProperties(controller, hash);
   }
 });
