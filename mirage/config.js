@@ -3,4 +3,5 @@ export default function() {
 
   this.get('/users/:id');
   this.get('/resource-lists/:id');
+  this.get('/missions')
 }

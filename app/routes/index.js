@@ -9,9 +9,11 @@ const {
 
 export default Route.extend({
   model() {
+    let store = get(this, 'store');
     return hash({
-      user: get(this, 'store').findRecord('user', 1),
-      resources: get(this, 'store').findRecord('resource-list', 1)
+      user: store.findRecord('user', 1),
+      resources: store.findRecord('resource-list', 1),
+      missions: store.findAll('mission')
     });
   },
 

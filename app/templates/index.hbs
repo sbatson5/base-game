@@ -3,3 +3,12 @@
 {{outlet}}
 
 {{user.name}}
+
+{{mission-selector missions=missions updateResource=(action "updateResource")}}
+
+<div class="mission-list">
+  <button {{action "updateResource" "food" 100}}>Food</button>
+  <button {{action "updateResource" "wood" 150}}>Wood</button>
+  <button {{action "updateResource" "metal" 100}}>Metal</button>
+  <button {{action "updateResource" "metal" -50}}>Negative metal</button>
+</div>

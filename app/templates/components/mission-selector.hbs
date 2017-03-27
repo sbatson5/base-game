@@ -1,1 +1,7 @@
-{{yield}}
+{{#each missions as |mission|}}
+  <div class="mission">
+    <h4>{{mission.description}}</h4>
+    <h5>Time: {{mission.time}}</h5>
+    <h5>Reward: {{mission.reward.resource}} x {{mission.reward.value}}</h5>
+  </div>
+{{/each}}
