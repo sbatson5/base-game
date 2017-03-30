@@ -3,5 +3,7 @@ export default function() {
 
   this.get('/users/:id');
   this.get('/resource-lists/:id');
-  this.get('/missions')
+  this.get('/followers');
+  this.get('/missions');
+  this.patch('/missions/:id');
 }

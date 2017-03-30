@@ -2,8 +2,10 @@
 
 {{outlet}}
 
-{{user.name}}
+Followers:
+{{follower-list followers=followers}}
 
+Missions:
 {{mission-selector missions=missions resouces=resources updateResource=(action "updateResource")}}
 
 <div class="mission-list">

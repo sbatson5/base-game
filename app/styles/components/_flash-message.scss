@@ -1,0 +1,12 @@
+// Class names for flash messages are applied by lib, so these do not adhere to BEM
+.alert {
+  position: fixed;
+  text-align: center;
+  transition: transform .4s; // timing defined in `environment.js`
+  width: 100%;
+  z-index: 100;
+
+  &.exiting {
+    transform: translateY(-100%);
+  }
+}

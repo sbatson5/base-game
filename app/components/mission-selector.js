@@ -4,6 +4,7 @@ const {
   Component,
   computed: { filterBy },
   get,
+  inject: { service },
   isPresent,
   run: { later },
   set
@@ -11,6 +12,7 @@ const {
 
 export default Component.extend({
   incompleteMissions: filterBy('missions', 'isCompleted', false),
+  flashMessages: service(),
 
   _checkResources(resource, value) {
     let currentAmount = get(this, `resources.${resource}`);
@@ -19,6 +21,7 @@ export default Component.extend({
 
   actions: {
     startMission(mission) {
+      let flashMessages = get(this, 'flashMessages');
       let duration = get(mission, 'duration');
       let { resource, value } = get(mission, 'reward');
       let cost = get(mission, 'cost');
@@ -28,16 +31,17 @@ export default Component.extend({
         let { resource, value } = cost;
 
         if (this._checkResources(resource, value)) {
-          updateResource(costResource, (parseInt(costValue) * -1));
+          updateResource(resource, (parseInt(value) * -1));
         } else {
           // error
+          flashMessages.danger(`You don't have enough ${resource}`);
           return;
         }
       }
 
       set(mission, 'isCompleted', true);
       mission.save().then(() => {
-        // get(this, 'missions').removeObject(mission);
+        flashMessages.success('Mission started!');
       }).catch(() => {
         console.log('error');
       });
