@@ -10,5 +10,6 @@ export default Model.extend({
   duration: attr('number'),
   description: attr('string'),
   cost: attr(),
-  probability: attr('number')
+  probability: attr('number'),
+  isCompleted: attr('boolean')
 });

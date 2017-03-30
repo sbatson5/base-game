@@ -1,7 +1,8 @@
-{{#each missions as |mission|}}
+{{#each incompleteMissions as |mission|}}
   <div class="mission">
     <h4>{{mission.description}}</h4>
-    <h5>Time: {{mission.time}}</h5>
+    <h5>Time: {{mission.duration}}</h5>
     <h5>Reward: {{mission.reward.resource}} x {{mission.reward.value}}</h5>
+    <button {{action "startMission" mission}}>Start mission</button>
   </div>
 {{/each}}

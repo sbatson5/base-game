@@ -5,9 +5,13 @@ export default [
       resource: 'wood',
       value: 100
     },
-    cost: null,
+    cost: {
+      resource: 'food',
+      value: 10
+    },
     description: 'Cut down wood',
-    duration: 5000
+    duration: 2000,
+    isCompleted: false
   }, {
     id: 2,
     reward: {
@@ -16,7 +20,8 @@ export default [
     },
     cost: null,
     description: 'Gather metal',
-    duration: 2500
+    duration: 1500,
+    isCompleted: false
   }, {
     id: 3,
     reward: {
@@ -25,6 +30,7 @@ export default [
     },
     cost: null,
     description: 'Gather some food',
-    duration: 10000
+    duration: 5000,
+    isCompleted: false
   }
 ];
