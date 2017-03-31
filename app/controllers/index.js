@@ -7,6 +7,9 @@ const {
 } = Ember;
 
 export default Controller.extend({
+  isSelectingFollower: false,
+  selectedMission: null,
+
   actions: {
     updateResource(resource, value) {
       let currentAmount = get(this, `resources.${resource}`);

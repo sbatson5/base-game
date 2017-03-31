@@ -2,7 +2,8 @@ import DS from 'ember-data';
 
 const {
   Model,
-  attr
+  attr,
+  belongsTo
 } = DS;
 
 export default Model.extend({
@@ -11,5 +12,7 @@ export default Model.extend({
   description: attr('string'),
   cost: attr(),
   probability: attr('number'),
-  isCompleted: attr('boolean')
+  isCompleted: attr('boolean'),
+
+  assignedFollower: belongsTo('follower')
 });

@@ -6,5 +6,7 @@ const {
 } = DS;
 
 export default Model.extend({
-  name: attr('string')
+  name: attr('string'),
+  day: attr('number'),
+  deceasedFollowers: attr('number')
 });

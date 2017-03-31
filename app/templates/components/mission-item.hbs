@@ -1,0 +1,7 @@
+<h4>{{mission.description}}</h4>
+<h5>Time: {{mission.duration}}</h5>
+<h5>Reward: {{mission.reward.resource}} x {{mission.reward.value}}</h5>
+{{#if mission.cost}}
+  <h5>Requires: {{mission.cost.resource}} x {{mission.cost.value}}</h5>
+{{/if}}
+<button {{action "startMission" mission}}>Start mission</button>
