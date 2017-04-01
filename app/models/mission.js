@@ -13,6 +13,7 @@ export default Model.extend({
   cost: attr(),
   probability: attr('number'),
   isCompleted: attr('boolean'),
+  requirements: attr(),
 
   assignedFollower: belongsTo('follower')
 });

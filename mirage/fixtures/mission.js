@@ -9,6 +9,12 @@ export default [
       resource: 'food',
       value: 10
     },
+    requirements: [
+      {
+        type: 'follower',
+        detail: 'hunter'
+      }
+    ],
     description: 'Cut down wood',
     duration: 2000,
     isCompleted: false
@@ -18,6 +24,12 @@ export default [
       resource: 'metal',
       value: 25
     },
+    requirements: [
+      {
+        type: 'follower',
+        detail: 'engineer'
+      }
+    ],
     cost: null,
     description: 'Gather metal',
     duration: 1500,
@@ -28,6 +40,12 @@ export default [
       resource: 'food',
       value: 50
     },
+    requirements: [
+      {
+        type: 'follower',
+        detail: 'any'
+      }
+    ],
     cost: null,
     description: 'Gather some food',
     duration: 5000,

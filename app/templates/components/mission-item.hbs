@@ -1,7 +1,15 @@
-<h4>{{mission.description}}</h4>
-<h5>Time: {{mission.duration}}</h5>
-<h5>Reward: {{mission.reward.resource}} x {{mission.reward.value}}</h5>
-{{#if mission.cost}}
-  <h5>Requires: {{mission.cost.resource}} x {{mission.cost.value}}</h5>
-{{/if}}
-<button {{action "startMission" mission}}>Start mission</button>
+<div {{action "showMission"}}>
+  <h4>{{mission.description}}</h4>
+  {{#if isShown}}
+    <h5>Time: {{mission.duration}}</h5>
+    <h5>Reward: {{mission.reward.resource}} x {{mission.reward.value}}</h5>
+    {{#if mission.cost}}
+      <h4>Requires:</h4>
+      <h5>{{mission.cost.resource}} x {{mission.cost.value}}</h5>
+    {{/if}}
+    {{#each mission.requirements as |requirement|}}
+      <h5>{{requirement.type}}: {{requirement.detail}}</h5>
+    {{/each}}
+    <button {{action "startMission"}}>Start mission</button>
+  {{/if}}
+</div>
