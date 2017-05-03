@@ -25,9 +25,20 @@ export default Ember.Component.extend({
         if (!get(followerManager, 'currentOccupations').includes(requirement.detail)) {
           hasRequirements = false;
         }
+        this._setFollower(requirement.detail, followerManager);
       }
     });
     return hasRequirements;
+  },
+
+  _setFollower(followerType, followerManager) {
+    let mission = get(this, 'mission');
+    if (followerType === 'any') {
+
+    } else {
+      let follower = followerManager.getFollowerByOccupation(followerType);
+      set(mission, 'assignedFollower', follower);
+    }
   },
 
   actions: {

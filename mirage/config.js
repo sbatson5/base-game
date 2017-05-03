@@ -4,6 +4,7 @@ export default function() {
   this.get('/users/:id');
   this.get('/resource-lists/:id');
   this.get('/followers');
+  this.delete('/followers/:id');
   this.get('/missions');
   this.patch('/missions/:id');
 }

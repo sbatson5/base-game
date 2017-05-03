@@ -3,6 +3,7 @@ import Ember from 'ember';
 const {
   Service,
   computed: { mapBy },
+  get,
   set
 } = Ember;
 
@@ -13,5 +14,14 @@ export default Service.extend({
 
   setFollowers(followerArray) {
     set(this, 'followers', followerArray)
+  },
+
+  getFollowerByOccupation(occupation) {
+    return get(this, 'followers').findBy('occupation', occupation);
+  },
+
+  killFollower(follower) {
+    let occupation = get(follower, 'occupation');
+    this.getFollowerByOccupation(occupation).destroyRecord();
   }
 });
