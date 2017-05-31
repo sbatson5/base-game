@@ -13,10 +13,24 @@ const {
 export default Component.extend({
   incompleteMissions: filterBy('missions', 'isCompleted', false),
   flashMessages: service(),
+  followerManager: service(),
 
   _checkResources(resource, value) {
     let currentAmount = get(this, `resources.${resource}`);
     return currentAmount >= value;
+  },
+
+  _handleFollower(follower) {
+    let odds = Math.random();
+
+    // always a 90 percent chance that the follower dies
+    if (odds > 0.9) {
+      let followerManager = get(this, 'followerManager');
+
+      get(this, 'flashMessages').danger(`Oh no, it looks like ${get(follower, 'name')} died a horrible death`);
+
+      followerManager.killFollower(follower);
+    }
   },
 
   actions: {
@@ -48,6 +62,7 @@ export default Component.extend({
 
       later(() => {
         updateResource(resource, value);
+        this._handleFollower(get(mission, 'assignedFollower'));
       }, duration);
     }
   }
