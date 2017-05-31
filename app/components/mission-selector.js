@@ -27,7 +27,7 @@ export default Component.extend({
     if (odds > 0.9) {
       let followerManager = get(this, 'followerManager');
 
-      get(this, 'flashMessages').danger(`Oh now, it looks like ${get(follower, 'name')} died a horrible death`);
+      get(this, 'flashMessages').danger(`Oh no, it looks like ${get(follower, 'name')} died a horrible death`);
 
       followerManager.killFollower(follower);
     }

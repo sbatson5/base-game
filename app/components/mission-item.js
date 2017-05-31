@@ -43,6 +43,8 @@ export default Ember.Component.extend({
 
   actions: {
     startMission() {
+      set(this, 'showFollowerSelect', false);
+
       let mission = get(this, 'mission');
       if (!this._checkRequirements()) {
         get(this, 'flashMessages').danger('Missing some requirements');
@@ -50,6 +52,7 @@ export default Ember.Component.extend({
       }
       get(this, 'startMission')(mission);
     },
+
     showMission() {
       // this.toggleProperty('isShown');
       set(this, 'isShown', true);
