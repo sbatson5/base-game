@@ -15,7 +15,7 @@ export default Controller.extend({
       let currentAmount = get(this, `resources.${resource}`);
       value += currentAmount;
       if (value < 0) {
-        alert("not enough resources")
+        alert("not enough resources");
       } else {
         set(this, `resources.${resource}`, value);
       }

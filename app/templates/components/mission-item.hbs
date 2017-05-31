@@ -1,9 +1,9 @@
-<div {{action (mut showFollowerSelect) true}}>
+<div {{action (mut showMissionInformation) true}}>
   <h4>{{mission.description}}</h4>
 </div>
 
-{{#if showFollowerSelect}}
-  {{#modal-dialog onClose=(action (mut showFollowerSelect) false) translucentOverlay=true}}
+{{#if showMissionInformation}}
+  {{#modal-dialog onClose=(action (mut showMissionInformation) false) translucentOverlay=true}}
     <h5>Time: {{mission.duration}}</h5>
     <h5>Reward: {{mission.reward.resource}} x {{mission.reward.value}}</h5>
     {{#if mission.cost}}
@@ -13,6 +13,17 @@
     {{#each mission.requirements as |requirement|}}
       <h5>{{requirement.type}}: {{requirement.detail}}</h5>
     {{/each}}
-    <button {{action "startMission"}}>Start mission</button>
+
+    {{#if canHaveAnyFollower}}
+      <button {{action (mut showFollowerSelect) true}}>Select follower</button>
+    {{else}}
+      <button {{action "startMission"}}>Start mission</button>
+    {{/if}}
+  {{/modal-dialog}}
+{{/if}}
+
+{{#if showFollowerSelect}}
+  {{#modal-dialog onClose=(action (mut showFollowerSelect) false) translucentOverlay=true}}
+    {{follower-selector selectFollower=(action "chooseFollower")}}
   {{/modal-dialog}}
 {{/if}}

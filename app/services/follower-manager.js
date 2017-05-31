@@ -13,7 +13,7 @@ export default Service.extend({
   currentOccupations: mapBy('followers', 'occupation'),
 
   setFollowers(followerArray) {
-    set(this, 'followers', followerArray)
+    set(this, 'followers', followerArray);
   },
 
   getFollowerByOccupation(occupation) {

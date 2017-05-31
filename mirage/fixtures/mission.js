@@ -30,7 +30,10 @@ export default [
         detail: 'engineer'
       }
     ],
-    cost: null,
+    cost: {
+      resource: 'wood',
+      value: 100
+    },
     description: 'Gather metal',
     duration: 1500,
     isCompleted: false
