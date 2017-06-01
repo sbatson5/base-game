@@ -19,12 +19,6 @@ export default Component.extend({
 
   requirements: alias('mission.requirements'),
 
-  canHaveAnyFollower: computed('requirements.@each.detail', function() {
-    let requirements = get(this, 'requirements');
-
-    return requirements.findBy('type', 'follower').detail === 'any';
-  }),
-
   _checkRequirements() {
     let requirements = get(this, 'requirements');
     let followerManager = get(this, 'followerManager');
@@ -63,14 +57,8 @@ export default Component.extend({
       get(this, 'startMission')(mission);
     },
 
-    chooseFollower(follower) {
-      set(this, 'showFollowerSelect', false);
-      let mission = get(this, 'mission');
-      let occupation = get(follower, 'occupation');
-
-      let anyFollower = get(this, 'requirements').findBy('type', 'follower');
-      let newFollower = { type: 'follower', detail: occupation };
-      get(mission, 'requirements').removeObject(anyFollower).pushObject(newFollower);
+    hideMissionModal() {
+      set(this, 'showMissionInformation', false);
     }
   }
 });
