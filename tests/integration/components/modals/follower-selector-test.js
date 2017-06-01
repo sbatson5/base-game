@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('follower-selector', 'Integration | Component | follower selector', {
+moduleForComponent('modals/follower-selector', 'Integration | Component | modals/follower selector', {
   integration: true
 });
 
@@ -10,15 +10,15 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{follower-selector}}`);
+  this.render(hbs`{{modals/follower-selector}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#follower-selector}}
+    {{#modals/follower-selector}}
       template block text
-    {{/follower-selector}}
+    {{/modals/follower-selector}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');

@@ -1,0 +1,7 @@
+{{#modal-dialog onClose=(action (mut showFollowerSelect) false) translucentOverlay=true}}
+  {{#each followerManager.followers as |follower|}}
+    <div {{action "setFollower" follower}}>
+      {{follower.name}} - {{follower.occupation}}
+    </div>
+  {{/each}}
+{{/modal-dialog}}

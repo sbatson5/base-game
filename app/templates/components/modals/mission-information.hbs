@@ -17,7 +17,7 @@
 {{/modal-dialog}}
 
 {{#if showFollowerSelect}}
-  {{#modal-dialog onClose=(action (mut showFollowerSelect) false) translucentOverlay=true}}
-    {{follower-selector selectFollower=(action "chooseFollower")}}
-  {{/modal-dialog}}
+  {{modals/follower-selector 
+    selectFollower=(action "chooseFollower")
+    showFollowerSelect=showFollowerSelect}}
 {{/if}}
