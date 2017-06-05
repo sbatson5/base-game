@@ -1,0 +1,5 @@
+{{#modal-dialog onClose=(action "closeModal") translucentOverlay=true}}
+  {{#each tools as |tool|}}
+    {{tool-item tool=tool}}
+  {{/each}}
+{{/modal-dialog}}
