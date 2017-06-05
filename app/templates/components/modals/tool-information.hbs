@@ -1,0 +1,14 @@
+{{#modal-dialog onClose=(action "closeModal") translucentOverlay=true}}
+  <h2>{{tool.name}}</h2>
+  <h3>{{tool.description}}</h3>
+
+  <h3>Requirements</h3>
+  {{#each tool.requirements as |requirement|}}
+    <h4>{{requirement.type}}: {{requirement.detail}}</h4>
+  {{/each}}
+
+  <h3>Costs</h3>
+  {{#each tool.costs as |cost|}}
+    <h4>{{cost.resource}}: {{cost.value}}</h4>
+  {{/each}}
+{{/modal-dialog}}

@@ -3,6 +3,7 @@ export default function() {
 
   this.get('/users/:id');
   this.get('/resource-lists/:id');
+  this.get('/tool-lists');
   this.get('/followers');
   this.delete('/followers/:id');
   this.get('/missions');

@@ -1,0 +1,7 @@
+<div {{action "showToolInfoModal"}}>
+  <h2>{{tool.name}}</h2>
+</div>
+
+{{#if showToolInfo}}
+  {{modals/tool-information tool=tool closeModal=(action 'hideToolInfo')}}
+{{/if}}

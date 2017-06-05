@@ -17,7 +17,8 @@ export default Route.extend({
       user: store.findRecord('user', 1),
       resources: store.findRecord('resource-list', 1),
       missions: store.findAll('mission'),
-      followers: store.findAll('follower')
+      followers: store.findAll('follower'),
+      toolList: store.findAll('tool-list')
     });
   },
 

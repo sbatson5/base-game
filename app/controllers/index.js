@@ -9,6 +9,7 @@ const {
 export default Controller.extend({
   isSelectingFollower: false,
   selectedMission: null,
+  showToolModal: false,
 
   actions: {
     updateResource(resource, value) {
@@ -19,6 +20,14 @@ export default Controller.extend({
       } else {
         set(this, `resources.${resource}`, value);
       }
+    },
+
+    displayToolModal() {
+      set(this, 'showToolModal', true);
+    },
+
+    hideToolModal() {
+      set(this, 'showToolModal', false);
     }
   }
 });

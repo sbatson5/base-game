@@ -14,3 +14,9 @@ Missions:
   <button {{action "updateResource" "metal" 100}}>Metal</button>
   <button {{action "updateResource" "metal" -50}}>Negative metal</button>
 </div>
+
+<button {{action "displayToolModal"}}>Tool thingy</button>
+
+{{#if showToolModal}}
+  {{modals/tool-crafter hideModal=(action "hideToolModal") tools=toolList}}
+{{/if}}
