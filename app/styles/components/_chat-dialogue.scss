@@ -1,3 +1,5 @@
+$spriteStep: 96px;
+$negativeStep: -96px;
 #modal-overlays .ember-modal-wrapper .ember-modal-overlay-bottom {
   .ember-modal-dialog-bottom {
     position: fixed;
@@ -20,7 +22,30 @@
     opacity: .25;
   }
 
-  img.focus {
+  .focus {
     opacity: 1;
+  }
+
+  .not-focused {
+    opacity: .25;
+  }
+
+  .chat-sprite {
+    height: 96px;
+    width: 96px;
+    background-image: url('/images/dark-hair-faces.png');
+    background-position: 0 0;
+    transform: scale(2);
+    bottom: 0;
+    margin: auto 0;
+  }
+
+  .emotion {
+    &--sad {
+      background-position: 0 $negativeStep;
+    }
+    &--angry {
+      background-position: $negativeStep $negativeStep;
+    }
   }
 }

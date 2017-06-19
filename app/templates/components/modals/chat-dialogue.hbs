@@ -8,6 +8,6 @@
       <p>{{currentText}}</p>
       <button {{action "stepForward"}}>Next</button>
     </div>
-    <img src="images/nun-right.png" class={{if isSecondary 'focus'}}>
+    {{chat-sprite currentChat=currentChat speaker="secondary"}}
   </div>
 {{/modal-dialog}}

@@ -26,7 +26,7 @@ export default Component.extend({
     }, {
       speaker: 'secondary',
       text: 'What a big mistake!!',
-      emotion: 'scared'
+      emotion: 'angry'
     }
   ],
 
@@ -37,6 +37,7 @@ export default Component.extend({
 
   currentText: alias('currentChat.text'),
   currentSpeaker: alias('currentChat.speaker'),
+  currentEmotion: alias('currentChat.emotion'),
 
   isPrimary: equal('currentSpeaker', 'primary'),
   isSecondary: equal('currentSpeaker', 'secondary'),
