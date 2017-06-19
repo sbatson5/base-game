@@ -5,7 +5,7 @@ const {
   attr
 } = DS;
 
-export default DS.Model.extend({
+export default Model.extend({
   name: attr('string'),
   description: attr('string'),
   requirements: attr(),
