@@ -18,5 +18,6 @@ Missions:
 <button {{action "displayToolModal"}}>Tool thingy</button>
 
 {{#if showToolModal}}
-  {{modals/tool-crafter hideModal=(action "hideToolModal") tools=toolList}}
+  {{!-- {{modals/tool-crafter hideModal=(action "hideToolModal") tools=toolList}} --}}
+  {{modals/chat-dialogue}}
 {{/if}}
