@@ -7,8 +7,6 @@ const {
   get
 } = Ember;
 
- // class=(concat "emotion--" currentEmotion)
-
 export default Component.extend({
   classNames: ['chat-sprite'],
   classNameBindings: [

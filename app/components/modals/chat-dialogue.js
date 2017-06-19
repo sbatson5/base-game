@@ -35,6 +35,12 @@ export default Component.extend({
     return get(this, 'chatMessages')[index];
   }),
 
+  noRemainingMessages: computed('numberOfMessages', 'chatIndex', function() {
+    return get(this, 'chatIndex') + 1 >= get(this, 'numberOfMessages');
+  }),
+
+  numberOfMessages: alias('chatMessages.length'),
+
   currentText: alias('currentChat.text'),
   currentSpeaker: alias('currentChat.speaker'),
   currentEmotion: alias('currentChat.emotion'),
@@ -45,6 +51,10 @@ export default Component.extend({
   actions: {
     stepForward() {
       this.incrementProperty('chatIndex');
+    },
+
+    closeModal() {
+      get(this, 'hideModal')();
     }
   }
 });

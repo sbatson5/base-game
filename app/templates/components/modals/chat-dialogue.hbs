@@ -6,7 +6,11 @@
     {{chat-sprite currentChat=currentChat speaker="primary"}}
     <div class="messages">
       <p>{{currentText}}</p>
-      <button {{action "stepForward"}}>Next</button>
+      {{#if noRemainingMessages}}
+        <button {{action "closeModal"}}>Close</button>
+      {{else}}
+        <button {{action "stepForward"}}>Next</button>
+      {{/if}}
     </div>
     {{chat-sprite currentChat=currentChat speaker="secondary"}}
   </div>

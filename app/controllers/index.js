@@ -22,8 +22,8 @@ export default Controller.extend({
       }
     },
 
-    displayToolModal() {
-      set(this, 'showToolModal', true);
+    displayChatModal() {
+      set(this, 'showChat', true);
     },
 
     hideToolModal() {
