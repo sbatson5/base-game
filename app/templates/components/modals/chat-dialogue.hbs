@@ -2,5 +2,12 @@
   containerClass="ember-modal-dialog-bottom"
   overlayClass="ember-modal-overlay-bottom"
   translucentOverlay=true}}
-    <h1>Here is some chat content</h1>
+  <div class="chat-container">
+    <img src="images/single-face.png" class={{if isPrimary 'focus'}}>
+    <div>
+      <p>{{currentText}}</p>
+      <button {{action "stepForward"}}>Next</button>
+    </div>
+    <img src="images/nun-right.png" class={{if isSecondary 'focus'}}>
+  </div>
 {{/modal-dialog}}

@@ -9,3 +9,18 @@
     height: 200px;
   }
 }
+
+.chat-container {
+  max-height: 200px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  img {
+    opacity: .25;
+  }
+
+  img.focus {
+    opacity: 1;
+  }
+}
