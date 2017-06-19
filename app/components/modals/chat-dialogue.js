@@ -13,11 +13,11 @@ export default Component.extend({
   chatMessages: [
     {
       speaker: 'primary',
-      text: 'This is the first message',
+      text: 'I am so happy about the things that are happening right now!',
       emotion: 'happy'
     }, {
       speaker: 'secondary',
-      text: 'And this is second',
+      text: 'Oh no... I ate a burrito and it isn\'t sitting well... Maybe I will have some of this warm milk.',
       emotion: 'sad'
     }, {
       speaker: 'primary',

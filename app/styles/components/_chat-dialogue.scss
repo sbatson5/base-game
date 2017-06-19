@@ -1,7 +1,8 @@
-$spriteStep: 96px;
-$negativeStep: -96px;
+$sprite-step: 96px;
+$step: -96px;
 #modal-overlays .ember-modal-wrapper .ember-modal-overlay-bottom {
   .ember-modal-dialog-bottom {
+    background-color: rgba(65,105,225, .5);
     position: fixed;
     bottom: 0;
     top: initial;
@@ -33,19 +34,45 @@ $negativeStep: -96px;
   .chat-sprite {
     height: 96px;
     width: 96px;
-    background-image: url('/images/dark-hair-faces.png');
+    min-width: 96px;
     background-position: 0 0;
-    transform: scale(2);
     bottom: 0;
-    margin: auto 0;
+    margin-top: 50px;
+  }
+
+  .is-primary {
+    background-image: url('/images/female-brunette.png');
+    transform: scale(-2, 2);
+  }
+
+  .is-secondary {
+    background-image: url('/images/dark-hair-faces.png');
+    transform: scale(2);
   }
 
   .emotion {
     &--sad {
-      background-position: 0 $negativeStep;
+      background-position: 0 $step;
     }
     &--angry {
-      background-position: $negativeStep $negativeStep;
+      background-position: $step $step;
+    }
+  }
+
+  .messages {
+    text-align: center;
+
+    p {
+      text-align: left;
+      font-size: 1.5rem;
+      color: white;
+      font-weight: 600;
+      font-family: fantasy;
+    }
+
+    button {
+      position: fixed;
+      bottom: 0;
     }
   }
 }

@@ -14,7 +14,9 @@ export default Component.extend({
   classNameBindings: [
     'isFocused:focus:not-focused',
     'isAngry:emotion--angry',
-    'isSad:emotion--sad'
+    'isSad:emotion--sad',
+    'isPrimary',
+    'isSecondary'
   ],
 
   isFocused: computed('currentChat.speaker', 'speaker', function() {
@@ -29,5 +31,7 @@ export default Component.extend({
   }),
 
   isAngry: equal('currentEmotion', 'angry'),
-  isSad: equal('currentEmotion', 'sad')
+  isSad: equal('currentEmotion', 'sad'),
+  isPrimary: equal('speaker', 'primary'),
+  isSecondary: equal('speaker', 'secondary')
 });

@@ -3,8 +3,8 @@
   overlayClass="ember-modal-overlay-bottom"
   translucentOverlay=true}}
   <div class="chat-container">
-    <img src="images/single-face.png" class={{if isPrimary 'focus'}}>
-    <div>
+    {{chat-sprite currentChat=currentChat speaker="primary"}}
+    <div class="messages">
       <p>{{currentText}}</p>
       <button {{action "stepForward"}}>Next</button>
     </div>
