@@ -3,7 +3,7 @@ import Ember from 'ember';
 const {
   Component,
   computed,
-  computed: { alias, equal },
+  computed: { alias, equal, filterBy, lte },
   get
 } = Ember;
 
@@ -38,6 +38,14 @@ export default Component.extend({
   noRemainingMessages: computed('numberOfMessages', 'chatIndex', function() {
     return get(this, 'chatIndex') + 1 >= get(this, 'numberOfMessages');
   }),
+
+  didReceiveAttrs() {
+    console.log(get(this, 'numberOfSecondaryMessages'));
+    console.log(get(this, 'noSecondary'));
+  },
+
+  secondaryChat: filterBy('chatMessages', 'speaker', 'secondary'),
+  noSecondary: lte('secondaryChat.length', 0),
 
   numberOfMessages: alias('chatMessages.length'),
 
