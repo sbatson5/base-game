@@ -13,6 +13,7 @@ export default Component.extend({
     'isFocused:focus:not-focused',
     'isAngry:emotion--angry',
     'isSad:emotion--sad',
+    'isHappy:emotion--happy',
     'isPrimary',
     'isSecondary'
   ],
@@ -30,6 +31,7 @@ export default Component.extend({
 
   isAngry: equal('currentEmotion', 'angry'),
   isSad: equal('currentEmotion', 'sad'),
+  isHappy: equal('currentEmotion', 'happy'),
   isPrimary: equal('speaker', 'primary'),
   isSecondary: equal('speaker', 'secondary')
 });

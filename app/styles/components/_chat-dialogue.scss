@@ -57,6 +57,9 @@ $step: -96px;
     &--angry {
       background-position: $step $step;
     }
+    &--happy {
+      background-position: 96px 0;
+    }
   }
 
   .messages {
