@@ -12,6 +12,10 @@
         <button {{action "stepForward"}}>Next</button>
       {{/if}}
     </div>
-    {{chat-sprite currentChat=currentChat speaker="secondary"}}
+    {{#unless noSecondary}}
+      {{chat-sprite currentChat=currentChat speaker="secondary"}}
+    {{else}}
+      <div></div>
+    {{/unless}}
   </div>
 {{/modal-dialog}}

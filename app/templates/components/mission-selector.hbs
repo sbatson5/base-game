@@ -1,3 +1,10 @@
 {{#each incompleteMissions as |mission|}}
   {{mission-item mission=mission startMission=(action "startMission")}}
 {{/each}}
+
+{{#if showMissionDialog}}
+  {{modals/chat-dialogue
+    chatMessages=chatMessages
+    noSecondary=true
+    hideModal=(action (mut showMissionDialog false))}}
+{{/if}}

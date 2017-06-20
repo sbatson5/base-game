@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { missingResources, followerDied } from 'base-game/utils/failure-dialogue';
 
 const {
   Component,
@@ -14,6 +15,7 @@ export default Component.extend({
   incompleteMissions: filterBy('missions', 'isCompleted', false),
   flashMessages: service(),
   followerManager: service(),
+  chatMessages: null,
 
   _checkResources(resource, value) {
     let currentAmount = get(this, `resources.${resource}`);
@@ -24,10 +26,12 @@ export default Component.extend({
     let odds = Math.random();
 
     // always a 90 percent chance that the follower dies
-    if (odds > 0.9) {
+    if (odds > 0.1) {
       let followerManager = get(this, 'followerManager');
 
-      get(this, 'flashMessages').danger(`Oh no, it looks like ${get(follower, 'name')} died a horrible death`);
+      let followerName = get(follower, 'name');
+      set(this, 'chatMessages', followerDied(followerName));
+      set(this, 'showMissionDialog', true);
 
       followerManager.killFollower(follower);
     }
@@ -48,7 +52,8 @@ export default Component.extend({
           updateResource(resource, (parseInt(value) * -1));
         } else {
           // error
-          flashMessages.danger(`You don't have enough ${resource}`);
+          set(this, 'chatMessages', missingResources(resource));
+          set(this, 'showMissionDialog', true);
           return;
         }
       }
