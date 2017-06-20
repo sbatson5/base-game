@@ -15,8 +15,8 @@ Missions:
   <button {{action "updateResource" "metal" -50}}>Negative metal</button>
 </div>
 
-<button {{action "displayToolModal"}}>Tool thingy</button>
+<button {{action "displayChatModal"}}>Chat test thingy</button>
 
-{{#if showToolModal}}
-  {{modals/tool-crafter hideModal=(action "hideToolModal") tools=toolList}}
+{{#if showChat}}
+  {{modals/chat-dialogue hideModal=(action (mut showChat false))}}
 {{/if}}

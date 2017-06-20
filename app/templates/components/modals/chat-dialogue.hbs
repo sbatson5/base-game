@@ -1,0 +1,17 @@
+{{#modal-dialog
+  containerClass="ember-modal-dialog-bottom"
+  overlayClass="ember-modal-overlay-bottom"
+  translucentOverlay=true}}
+  <div class="chat-container">
+    {{chat-sprite currentChat=currentChat speaker="primary"}}
+    <div class="messages">
+      <p>{{currentText}}</p>
+      {{#if noRemainingMessages}}
+        <button {{action "closeModal"}}>Close</button>
+      {{else}}
+        <button {{action "stepForward"}}>Next</button>
+      {{/if}}
+    </div>
+    {{chat-sprite currentChat=currentChat speaker="secondary"}}
+  </div>
+{{/modal-dialog}}
