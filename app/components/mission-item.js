@@ -17,6 +17,7 @@ export default Component.extend({
 
   followerManager: service(),
   flashMessages: service(),
+  conversationManager: service(),
 
   requirements: alias('mission.requirements'),
   followerRequirements: filterBy('requirements', 'type', 'follower'),
@@ -54,9 +55,8 @@ export default Component.extend({
       let mission = get(this, 'mission');
       if (!this._checkRequirements()) {
         let followerType = get(this, 'followerRequirements.firstObject.detail');
-        // TODO: manage this with a service
-        set(this, 'chatMessages', missingFollower(followerType));
-        set(this, 'showMissionDialog', true);
+        let messages = missingFollower(followerType);
+        get(this, 'conversationManager').startConversation(messages);
         return;
       }
       get(this, 'startMission')(mission);

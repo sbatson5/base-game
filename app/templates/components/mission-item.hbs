@@ -9,9 +9,3 @@
     startMission=(action "startMission")
     hideMissionModal=(action "hideMissionModal")}}
 {{/if}}
-
-{{#if showMissionDialog}}
-  {{modals/chat-dialogue
-    chatMessages=chatMessages
-    hideModal=(action (mut showMissionDialog false))}}
-{{/if}}

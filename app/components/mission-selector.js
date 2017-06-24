@@ -15,6 +15,7 @@ export default Component.extend({
   incompleteMissions: filterBy('missions', 'isCompleted', false),
   flashMessages: service(),
   followerManager: service(),
+  conversationManager: service(),
   chatMessages: null,
 
   _checkResources(resource, value) {
@@ -26,12 +27,12 @@ export default Component.extend({
     let odds = Math.random();
 
     // always a 90 percent chance that the follower dies
-    if (odds > 0.1) {
+    if (odds > 0.9) {
       let followerManager = get(this, 'followerManager');
 
       let followerName = get(follower, 'name');
-      set(this, 'chatMessages', followerDied(followerName));
-      set(this, 'showMissionDialog', true);
+      let messages = followerDied(followerName);
+      get(this, 'conversationManager').startConversation(messages);
 
       followerManager.killFollower(follower);
     }
@@ -51,9 +52,8 @@ export default Component.extend({
         if (this._checkResources(resource, value)) {
           updateResource(resource, (parseInt(value) * -1));
         } else {
-          // error
-          set(this, 'chatMessages', missingResources(resource));
-          set(this, 'showMissionDialog', true);
+          let messages = missingResources(resource);
+          get(this, 'conversationManager').startConversation(messages);
           return;
         }
       }
