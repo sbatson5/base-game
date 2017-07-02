@@ -1,8 +1,9 @@
 import Ember from 'ember';
+import { missingFollower } from 'base-game/utils/failure-dialogue';
 
 const {
   Component,
-  computed: { alias },
+  computed: { alias, filterBy },
   get,
   inject: { service },
   set
@@ -12,11 +13,14 @@ export default Component.extend({
   classNames: ['mission'],
   mission: null,
   isShown: false,
+  chatMessages: null,
 
   followerManager: service(),
   flashMessages: service(),
+  conversationManager: service(),
 
   requirements: alias('mission.requirements'),
+  followerRequirements: filterBy('requirements', 'type', 'follower'),
 
   _checkRequirements() {
     let requirements = get(this, 'requirements');
@@ -50,7 +54,9 @@ export default Component.extend({
 
       let mission = get(this, 'mission');
       if (!this._checkRequirements()) {
-        get(this, 'flashMessages').danger('Missing some requirements');
+        let followerType = get(this, 'followerRequirements.firstObject.detail');
+        let messages = missingFollower(followerType);
+        get(this, 'conversationManager').startConversation(messages);
         return;
       }
       get(this, 'startMission')(mission);

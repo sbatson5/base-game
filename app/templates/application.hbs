@@ -5,3 +5,9 @@
 {{/each}}
 
 {{outlet}}
+
+{{#if showMissionDialog}}
+  {{modals/chat-dialogue
+    chatMessages=chatMessages
+    hideModal=(action (mut showMissionDialog false))}}
+{{/if}}
